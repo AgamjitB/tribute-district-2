@@ -36,3 +36,21 @@ button:hover {
 .hidden {
   display: none;
 }
+.popup {
+  position: fixed;
+  background-color: #222;
+  color: #00ffcc;
+  border: 2px solid #00ffcc;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  box-shadow: 0 0 10px #00ffcc;
+}
+
+.hidden {
+  display: none;
+}
