@@ -16,21 +16,22 @@
 
   <!-- Easter Egg Popup -->
   <div id="egg-popup" class="hidden popup" onclick="goToEaster1()">
-    <p><strong>🎉 Easter Egg:</strong> Click this popup to claim your prize.</p>
+    <p id="egg-text"><strong>🎉 Easter Egg:</strong> Click this popup to claim your prize.</p>
   </div>
 
-  <!-- Hidden clickable dot (Easter Egg 2) -->
+  <!-- Easter Egg 2: Invisible Dot -->
   <div id="egg2" onclick="goToEgg2()" title="Hmm..." style="position: absolute; bottom: 5px; left: 5px; width: 10px; height: 10px; background-color: transparent; cursor: pointer;"></div>
 
   <!-- Puzzle Section -->
   <div id="puzzle-room">
     <h3>🔐 Escape Room Clue:</h3>
+    <p id="puzzle-hint">Hint loading...</p>
     <input type="text" id="answer" placeholder="Type the password..." />
     <button onclick="checkAnswer()">Enter</button>
     <p id="result"></p>
   </div>
 
-  <!-- ✅ SUCCESS TOAST -->
+  <!-- ✅ SUCCESS TOAST (not clickable) -->
   <div id="success-toast" class="toast">
     🎉 Congratulations! You unlocked the greenhouse.
   </div>
