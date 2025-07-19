@@ -1,4 +1,4 @@
-// 🔁 Password options
+// 🔁 Puzzle options (password + hint)
 const puzzles = [
   { password: "chlorophyll", hint: "It's the green engine behind photosynthesis." },
   { password: "gravity", hint: "What keeps your feet on the ground?" },
@@ -7,7 +7,7 @@ const puzzles = [
   { password: "refraction", hint: "Why a straw looks bent in water." }
 ];
 
-// 👀 Science facts for popup
+// 🎁 Science facts for Easter Egg popup
 const facts = [
   "🧠 Your brain uses 20% of your body's energy — even at rest!",
   "🌌 There are more stars in the universe than grains of sand on Earth.",
@@ -21,7 +21,7 @@ const facts = [
 let currentAnswer = "";
 let currentHint = "";
 
-// 🔄 Load a random puzzle on page load
+// Initialize puzzle on page load
 window.onload = function () {
   const puzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
   currentAnswer = puzzle.password;
@@ -29,15 +29,17 @@ window.onload = function () {
   document.getElementById("puzzle-hint").textContent = "Hint: " + currentHint;
 };
 
-// ✅ Check puzzle input
+// Check user input for puzzle
 function checkAnswer() {
   const input = document.getElementById("answer").value.toLowerCase();
   const result = document.getElementById("result");
 
   if (input === currentAnswer) {
+    result.textContent = "🌿 Correct! You unlocked the greenhouse!";
     result.style.color = "#00ff00";
     showSuccessToast();
   } else if (input === "element-x") {
+    // Easter egg #3 secret keyword
     window.location.href = "easter3.html";
   } else {
     result.textContent = "❌ Wrong password. Try again.";
@@ -45,7 +47,7 @@ function checkAnswer() {
   }
 }
 
-// 🎉 Show success toast
+// Show success toast notification
 function showSuccessToast() {
   const toast = document.getElementById("success-toast");
   toast.classList.add("show");
@@ -54,7 +56,7 @@ function showSuccessToast() {
   }, 4000);
 }
 
-// 🎁 Show Easter Egg Popup with random fact
+// Show Easter Egg popup with a random fact
 function showEggPopup() {
   const fact = facts[Math.floor(Math.random() * facts.length)];
   const popup = document.getElementById("egg-popup");
@@ -62,15 +64,32 @@ function showEggPopup() {
   popup.classList.remove("hidden");
 }
 
-// 🧠 Easter Egg Navigation
+// Hide Easter Egg popup
+function hideEggPopup() {
+  document.getElementById("egg-popup").classList.add("hidden");
+}
+
+// Navigate to Team page
 function goToTeam() {
   window.location.href = "team.html";
 }
 
+// Navigate to Easter Egg 1 page
 function goToEaster1() {
   window.location.href = "easter1.html";
 }
 
+// Navigate to Easter Egg 2 page (hidden dot)
 function goToEgg2() {
   window.location.href = "easter2.html";
+}
+
+// Trigger glitch animation and redirect (for glitchy word)
+function triggerGlitch() {
+  const glitchText = document.getElementById("glitch-trigger");
+  glitchText.classList.add("glitch-active");
+
+  setTimeout(() => {
+    window.location.href = "easter3.html";
+  }, 2500);
 }
