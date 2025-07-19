@@ -101,3 +101,38 @@ button:hover {
   opacity: 1;
   transform: translateY(0);
 }
+.glitch-text {
+  color: #ff2e2e; /* bright red */
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+
+/* glitch animation */
+@keyframes glitch {
+  0% {
+    text-shadow: 2px 0 red, -2px 0 cyan;
+  }
+  20% {
+    text-shadow: -2px 0 red, 2px 0 cyan;
+  }
+  40% {
+    text-shadow: 2px 2px red, -2px -2px cyan;
+  }
+  60% {
+    text-shadow: -2px 2px red, 2px -2px cyan;
+  }
+  80% {
+    text-shadow: 2px -2px red, -2px 2px cyan;
+  }
+  100% {
+    text-shadow: 2px 0 red, -2px 0 cyan;
+  }
+}
+
+.glitch-active {
+  animation: glitch 0.5s linear 5;
+}
