@@ -18,3 +18,19 @@ function checkAnswer() {
     result.style.color = "#ff4444";
   }
 }
+
+function scrollToTeam() {
+  document.getElementById("team").scrollIntoView({ behavior: "smooth" });
+}
+
+function openSecret() {
+  window.location.href = "secret.html";
+}
+
+function showEggPopup() {
+  document.getElementById("egg-popup").classList.remove("hidden");
+}
+
+function hideEggPopup() {
+  document.getElementById("egg-popup").classList.add("hidden");
+}
