@@ -9,7 +9,16 @@
   <h1>🛡️ Welcome to District 2: The Powerhouse</h1>
   <p>Home base for the tributes of strength, smarts, and strategy.</p>
 
-  <div class="team">
+  <button onclick="scrollToTeam()">👥 Meet the Team</button>
+  <button onclick="openSecret()">🕵️ Secret District HQ</button>
+  <button onclick="showEggPopup()">🎁 Unlock Science Surprise</button>
+
+  <div id="egg-popup" class="hidden popup">
+    <p><strong>🎉 Easter Egg:</strong> Did you know your brain uses 20% of your body’s energy... even when you’re doing nothing? Wild, right? 🧠</p>
+    <button onclick="hideEggPopup()">Close</button>
+  </div>
+
+  <div class="team" id="team">
     <div class="tribute">
       <h2>Advika Pashupati</h2>
       <p>Specialty: The Strategist</p>
@@ -31,12 +40,6 @@
       <p>Specialty: The Engineer</p>
     </div>
   </div>
-
-  <button onclick="revealEgg1()">🧠 Click for a Science Surprise</button>
-  <p id="egg1" class="hidden">Easter Egg #1: Gravity isn't a force – it's the warping of space-time! 🪐</p>
-
-  <button onclick="revealEgg2()">🔋 Another one?</button>
-  <p id="egg2" class="hidden">Easter Egg #2: Batteries store chemical energy, not electricity! ⚡</p>
 
   <div id="puzzle-room">
     <h3>🔐 Escape Room Clue:</h3>
