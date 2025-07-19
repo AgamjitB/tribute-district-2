@@ -15,11 +15,13 @@
     <button onclick="showEggPopup()">🎁 Unlock Science Surprise</button>
   </div>
 
+  <!-- Easter Egg Popup -->
   <div id="egg-popup" class="hidden popup">
-    <p><strong>🎉 Easter Egg:</strong> Your brain uses 20% of your body’s energy... even when you’re just chilling. 🧠</p>
+    <p><strong>🎉 Easter Egg:</strong> Placeholder science fact</p>
     <button class="close-btn" onclick="hideEggPopup()">Close</button>
   </div>
 
+  <!-- Hidden Team Section -->
   <div class="team hidden" id="team">
     <div class="tribute">
       <h2>Advika Pashupati</h2>
@@ -43,6 +45,7 @@
     </div>
   </div>
 
+  <!-- Puzzle Section -->
   <div id="puzzle-room">
     <h3>🔐 Escape Room Clue:</h3>
     <input type="text" id="answer" placeholder="Type the password..." />
@@ -50,11 +53,12 @@
     <p id="result"></p>
   </div>
 
-  <!-- ✅ SUCCESS TOAST (bottom right popup) -->
-  <div id="success-toast" class="toast hidden">
+  <!-- ✅ Bottom-right Toast -->
+  <div id="success-toast" class="toast">
     🎉 Congratulations! You unlocked the greenhouse.
   </div>
 
+  <!-- JS Script -->
   <script src="script.js" defer></script>
 </body>
 </html>
