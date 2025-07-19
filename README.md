@@ -1,6 +1,6 @@
 # Tribute District Website
 
-Welcome to District 7!
+Welcome to District 2!
 
 This is the tribute homepage for our ScioCamp team.  
 We’ve included:
