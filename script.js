@@ -35,7 +35,6 @@ function checkAnswer() {
   const result = document.getElementById("result");
 
   if (input === currentAnswer) {
-    result.textContent = "🌿 Correct! You unlocked the greenhouse!";
     result.style.color = "#00ff00";
     showSuccessToast();
   } else if (input === "element-x") {
