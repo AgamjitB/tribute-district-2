@@ -5,6 +5,7 @@ function checkAnswer() {
   if (input === "photosynthesis") {
     result.textContent = "🌿 Correct! You unlocked the greenhouse!";
     result.style.color = "#00ff00";
+    showSuccessToast();
   } else {
     result.textContent = "❌ Wrong password. Hint: It's how plants eat sunlight.";
     result.style.color = "#ff4444";
@@ -22,9 +23,21 @@ function openSecret() {
 }
 
 function showEggPopup() {
-  document.getElementById("egg-popup").classList.remove("hidden");
+  const popup = document.getElementById("egg-popup");
+  popup.classList.remove("hidden");
 }
 
 function hideEggPopup() {
-  document.getElementById("egg-popup").classList.add("hidden");
+  const popup = document.getElementById("egg-popup");
+  popup.classList.add("hidden");
+}
+
+function showSuccessToast() {
+  const toast = document.getElementById("success-toast");
+  toast.classList.remove("hidden");
+
+  // Hide the toast after 4 seconds
+  setTimeout(() => {
+    toast.classList.add("hidden");
+  }, 4000);
 }
