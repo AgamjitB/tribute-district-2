@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>District 7 - Tribute HQ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>🏹 Welcome to District 7: The Survivors</h1>
+  <p>Home base for our tributes — strategy, strength, and science.</p>
+
+  <div class="team">
+    <div class="tribute">
+      <h2>Aya "The Planner"</h2>
+      <p>Specialty: Code cracking</p>
+    </div>
+    <div class="tribute">
+      <h2>Zee "The Builder"</h2>
+      <p>Specialty: Engineering escape rooms</p>
+    </div>
+  </div>
+
+  <button onclick="revealEgg1()">🧠 Click for a Science Surprise</button>
+  <p id="egg1" class="hidden">Easter Egg #1: Gravity isn't a force – it's the warping of space-time! 🪐</p>
+
+  <button onclick="revealEgg2()">🔋 Another one?</button>
+  <p id="egg2" class="hidden">Easter Egg #2: Batteries store chemical energy, not electricity! ⚡</p>
+
+  <div id="puzzle-room">
+    <h3>🔐 Escape Room Clue:</h3>
+    <input type="text" id="answer" placeholder="Type the password..." />
+    <button onclick="checkAnswer()">Enter</button>
+    <p id="result"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
