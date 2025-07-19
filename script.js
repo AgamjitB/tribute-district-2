@@ -1,3 +1,4 @@
+// Escape Room Check + Toast Popup
 function checkAnswer() {
   const input = document.getElementById("answer").value.toLowerCase();
   const result = document.getElementById("result");
@@ -12,32 +13,49 @@ function checkAnswer() {
   }
 }
 
+// Shows bottom-right congratulation popup
+function showSuccessToast() {
+  const toast = document.getElementById("success-toast");
+  toast.classList.add("show");
+
+  // Hide the toast after 4 seconds
+  setTimeout(() => {
+    toast.classList.remove("show");
+  }, 4000);
+}
+
+// Scroll to tribute list
 function scrollToTeam() {
   const teamSection = document.getElementById("team");
   teamSection.classList.remove("hidden");
   teamSection.scrollIntoView({ behavior: "smooth" });
 }
 
+// Navigate to secret page
 function openSecret() {
   window.location.href = "secret.html";
 }
 
+// Random Science Easter Egg
 function showEggPopup() {
+  const facts = [
+    "🧠 Your brain uses 20% of your body's energy — even at rest!",
+    "🌌 There are more stars in the universe than grains of sand on Earth.",
+    "⚛️ You are made of stardust — literally!",
+    "🔥 Lightning is 5x hotter than the surface of the sun.",
+    "🐙 Octopuses have 3 hearts and blue blood!",
+    "🚀 In space, no one can hear you scream — because there’s no air!",
+    "🧬 DNA in your body could stretch from Earth to Pluto and back… 17 times."
+  ];
+
+  const randomFact = facts[Math.floor(Math.random() * facts.length)];
   const popup = document.getElementById("egg-popup");
+
+  popup.querySelector("p").innerHTML = `<strong>🎉 Easter Egg:</strong> ${randomFact}`;
   popup.classList.remove("hidden");
 }
 
+// Close popup
 function hideEggPopup() {
-  const popup = document.getElementById("egg-popup");
-  popup.classList.add("hidden");
-}
-
-function showSuccessToast() {
-  const toast = document.getElementById("success-toast");
-  toast.classList.remove("hidden");
-
-  // Hide the toast after 4 seconds
-  setTimeout(() => {
-    toast.classList.add("hidden");
-  }, 4000);
+  document.getElementById("egg-popup").classList.add("hidden");
 }
