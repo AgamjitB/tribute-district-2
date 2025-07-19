@@ -7,18 +7,20 @@
 </head>
 <body>
   <h1>🛡️ Welcome to District 2: The Powerhouse</h1>
-  <p>Home base for the tributes of strength, smarts, and strategy.</p>
+  <p>Where strength meets science. Choose your next move.</p>
 
-  <button onclick="scrollToTeam()">👥 Meet the Team</button>
-  <button onclick="openSecret()">🕵️ Secret District HQ</button>
-  <button onclick="showEggPopup()">🎁 Unlock Science Surprise</button>
-
-  <div id="egg-popup" class="hidden popup">
-    <p><strong>🎉 Easter Egg:</strong> Did you know your brain uses 20% of your body’s energy... even when you’re doing nothing? Wild, right? 🧠</p>
-    <button onclick="hideEggPopup()">Close</button>
+  <div class="button-container">
+    <button onclick="scrollToTeam()">👥 Meet the Team</button>
+    <button onclick="openSecret()">🕵️ Enter Secret HQ</button>
+    <button onclick="showEggPopup()">🎁 Unlock Science Surprise</button>
   </div>
 
-  <div class="team" id="team">
+  <div id="egg-popup" class="hidden popup">
+    <p><strong>🎉 Easter Egg:</strong> Your brain uses 20% of your body’s energy... even when you’re just chilling. 🧠</p>
+    <button class="close-btn" onclick="hideEggPopup()">Close</button>
+  </div>
+
+  <div class="team hidden" id="team">
     <div class="tribute">
       <h2>Advika Pashupati</h2>
       <p>Specialty: The Strategist</p>
