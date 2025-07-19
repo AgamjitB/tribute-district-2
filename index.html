@@ -10,40 +10,17 @@
   <p>Where strength meets science. Choose your next move.</p>
 
   <div class="button-container">
-    <button onclick="scrollToTeam()">👥 Meet the Team</button>
-    <button onclick="openSecret()">🕵️ Enter Secret HQ</button>
+    <button onclick="goToTeam()">👥 Meet the Team</button>
     <button onclick="showEggPopup()">🎁 Unlock Science Surprise</button>
   </div>
 
   <!-- Easter Egg Popup -->
-  <div id="egg-popup" class="hidden popup">
-    <p><strong>🎉 Easter Egg:</strong> Placeholder science fact</p>
-    <button class="close-btn" onclick="hideEggPopup()">Close</button>
+  <div id="egg-popup" class="hidden popup" onclick="goToEaster1()">
+    <p><strong>🎉 Easter Egg:</strong> Click this popup to claim your prize.</p>
   </div>
 
-  <!-- Hidden Team Section -->
-  <div class="team hidden" id="team">
-    <div class="tribute">
-      <h2>Advika Pashupati</h2>
-      <p>Specialty: The Strategist</p>
-    </div>
-    <div class="tribute">
-      <h2>Tanya Thind</h2>
-      <p>Specialty: The Analyst</p>
-    </div>
-    <div class="tribute">
-      <h2>Karthik Jayaprakash</h2>
-      <p>Specialty: The Coder</p>
-    </div>
-    <div class="tribute">
-      <h2>Verna Acharya</h2>
-      <p>Specialty: The Designer</p>
-    </div>
-    <div class="tribute">
-      <h2>Agamjit Bal</h2>
-      <p>Specialty: The Engineer</p>
-    </div>
-  </div>
+  <!-- Hidden clickable dot (Easter Egg 2) -->
+  <div id="egg2" onclick="goToEgg2()" title="Hmm..." style="position: absolute; bottom: 5px; left: 5px; width: 10px; height: 10px; background-color: transparent; cursor: pointer;"></div>
 
   <!-- Puzzle Section -->
   <div id="puzzle-room">
@@ -53,12 +30,11 @@
     <p id="result"></p>
   </div>
 
-  <!-- ✅ Bottom-right Toast -->
+  <!-- ✅ SUCCESS TOAST -->
   <div id="success-toast" class="toast">
     🎉 Congratulations! You unlocked the greenhouse.
   </div>
 
-  <!-- JS Script -->
   <script src="script.js" defer></script>
 </body>
 </html>
