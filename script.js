@@ -1,11 +1,3 @@
-function revealEgg1() {
-  document.getElementById("egg1").classList.remove("hidden");
-}
-
-function revealEgg2() {
-  document.getElementById("egg2").classList.remove("hidden");
-}
-
 function checkAnswer() {
   const input = document.getElementById("answer").value.toLowerCase();
   const result = document.getElementById("result");
@@ -20,7 +12,9 @@ function checkAnswer() {
 }
 
 function scrollToTeam() {
-  document.getElementById("team").scrollIntoView({ behavior: "smooth" });
+  const teamSection = document.getElementById("team");
+  teamSection.classList.remove("hidden");
+  teamSection.scrollIntoView({ behavior: "smooth" });
 }
 
 function openSecret() {
