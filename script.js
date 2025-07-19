@@ -1,4 +1,4 @@
-// Escape Room Check + Toast Popup
+// Handle puzzle input answers
 function checkAnswer() {
   const input = document.getElementById("answer").value.toLowerCase();
   const result = document.getElementById("result");
@@ -7,55 +7,41 @@ function checkAnswer() {
     result.textContent = "🌿 Correct! You unlocked the greenhouse!";
     result.style.color = "#00ff00";
     showSuccessToast();
+  } else if (input === "element-x") {
+    // Easter egg #3 — secret keyword
+    window.location.href = "easter3.html";
   } else {
     result.textContent = "❌ Wrong password. Hint: It's how plants eat sunlight.";
     result.style.color = "#ff4444";
   }
 }
 
-// Shows bottom-right congratulation popup
+// Show bottom-right success toast
 function showSuccessToast() {
   const toast = document.getElementById("success-toast");
   toast.classList.add("show");
-
-  // Hide the toast after 4 seconds
   setTimeout(() => {
     toast.classList.remove("show");
   }, 4000);
 }
 
-// Scroll to tribute list
-function scrollToTeam() {
-  const teamSection = document.getElementById("team");
-  teamSection.classList.remove("hidden");
-  teamSection.scrollIntoView({ behavior: "smooth" });
-}
-
-// Navigate to secret page
-function openSecret() {
-  window.location.href = "secret.html";
-}
-
-// Random Science Easter Egg
+// Show popup Easter egg
 function showEggPopup() {
-  const facts = [
-    "🧠 Your brain uses 20% of your body's energy — even at rest!",
-    "🌌 There are more stars in the universe than grains of sand on Earth.",
-    "⚛️ You are made of stardust — literally!",
-    "🔥 Lightning is 5x hotter than the surface of the sun.",
-    "🐙 Octopuses have 3 hearts and blue blood!",
-    "🚀 In space, no one can hear you scream — because there’s no air!",
-    "🧬 DNA in your body could stretch from Earth to Pluto and back… 17 times."
-  ];
-
-  const randomFact = facts[Math.floor(Math.random() * facts.length)];
   const popup = document.getElementById("egg-popup");
-
-  popup.querySelector("p").innerHTML = `<strong>🎉 Easter Egg:</strong> ${randomFact}`;
   popup.classList.remove("hidden");
 }
 
-// Close popup
-function hideEggPopup() {
-  document.getElementById("egg-popup").classList.add("hidden");
+// Redirect when clicking popup
+function goToEaster1() {
+  window.location.href = "easter1.html";
+}
+
+// Redirect to Team Page
+function goToTeam() {
+  window.location.href = "team.html";
+}
+
+// Easter Egg #2 - Hidden dot
+function goToEgg2() {
+  window.location.href = "easter2.html";
 }
