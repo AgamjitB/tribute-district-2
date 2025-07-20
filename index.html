@@ -6,34 +6,34 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>🛡️ Welcome to District 2: The Powerhouse</h1>
-  <p>Where strength meets science. Choose your next move.</p>
+  <h1>Welcome to District 2: The Powerhouse</h1>
+  <p>A strategic command center for our tributes. Choose your next move.</p>
 
   <div class="button-container">
-    <button onclick="goToTeam()">👥 Meet the Team</button>
-    <button onclick="showEggPopup()">🎁 Unlock Science Surprise</button>
+    <button onclick="goToTeam()">Meet the Team</button>
+    <button onclick="showEggPopup()">Science Surprise</button>
   </div>
 
   <!-- Easter Egg Popup -->
   <div id="egg-popup" class="hidden popup" onclick="goToEaster1()">
-    <p id="egg-text"><strong>🎉 Easter Egg:</strong> Click this popup to claim your prize.</p>
+    <p id="egg-text">Click this popup to claim your surprise.</p>
   </div>
 
-  <!-- Easter Egg 2: Invisible Dot -->
-  <div id="egg2" onclick="goToEgg2()" title="Hmm..." style="position: absolute; bottom: 5px; left: 5px; width: 10px; height: 10px; background-color: transparent; cursor: pointer;"></div>
+  <!-- Hidden clickable dot -->
+  <div id="egg2" onclick="goToEgg2()" title="..." style="position: absolute; bottom: 5px; left: 5px; width: 10px; height: 10px; background-color: transparent; cursor: pointer;"></div>
 
   <!-- Puzzle Section -->
   <div id="puzzle-room">
-    <h3>🔐 Escape Room Clue:</h3>
+    <h3>Escape Room Clue:</h3>
     <p id="puzzle-hint">Hint loading...</p>
     <input type="text" id="answer" placeholder="Type the password..." />
     <button onclick="checkAnswer()">Enter</button>
     <p id="result"></p>
   </div>
 
-  <!-- ✅ SUCCESS TOAST (not clickable) -->
+  <!-- Success Toast -->
   <div id="success-toast" class="toast">
-    🎉 Congratulations! You unlocked easter egg number 2!
+    You unlocked the greenhouse.
   </div>
 
   <script src="script.js" defer></script>
