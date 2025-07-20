@@ -3,8 +3,8 @@ const puzzles = [
   { password: "chlorophyll", hint: "It's the green engine behind photosynthesis." },
   { password: "gravity", hint: "What keeps your feet on the ground?" },
   { password: "neuron", hint: "This fires signals inside your brain." },
-  { password: "fusion", hint: "How stars generate their energy." },
-  { password: "refraction", hint: "Why a straw looks bent in water." }
+  { password: "watt", hint: "What is the Si unit of power." },
+  { password: "joule", hint: "What is the Si unit energy" }
 ];
 
 // Science facts for popup
