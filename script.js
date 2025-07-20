@@ -33,7 +33,7 @@ function checkAnswer() {
   const result = document.getElementById("result");
 
   if (input === currentAnswer) {
-    result.textContent = "Correct! You have found easter egg number 2!";
+    result.textContent = "Correct!";
     result.style.color = "#00aa00";
     showSuccessToast();
   } else if (input === "easter egg 3") {
