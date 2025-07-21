@@ -19,11 +19,16 @@ const facts = [
 let currentAnswer = "";
 let currentHint = "";
 
-window.onload = function () {
+document.addEventListener("DOMContentLoaded", function () {
   const puzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
   currentAnswer = puzzle.password;
   currentHint = puzzle.hint;
-  document.getElementById("puzzle-hint").textContent = "Hint: " + currentHint;
+
+  const hintEl = document.getElementById("puzzle-hint");
+  if (hintEl) {
+    hintEl.textContent = "Hint: " + currentHint;
+  }
+});
 
   const glitchText = document.getElementById("glitch-trigger");
   if (glitchText) {
