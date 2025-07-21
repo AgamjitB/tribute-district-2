@@ -3,12 +3,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>District 2 - Tribute HQ</title>
+  <title>District 2</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to District 2: The Powerhouse</h1>
-  <p>A strategic command center for our tributes. Choose your next move.</p>
+  <h1>District 2</h1>
 
   <div class="button-container">
     <button onclick="goToTeam()">Meet the Team</button>
@@ -34,14 +38,11 @@
   </div>
 
   <!-- Easter Egg 3 Input (appears after hover) -->
-  <div style="margin-top: 20px;">
-    <span class="glitch-text" id="glitch-trigger">innovative</span>
-    <input type="text" id="egg3-input" class="hidden" placeholder="Type something..." onkeydown="checkEgg3(event)">
-  </div>
+  <input type="text" id="egg3-input" class="hidden" placeholder="Type something..." onkeydown="checkEgg3(event)">
 
   <!-- Success Toast -->
   <div id="success-toast" class="toast">
-    You unlocked the greenhouse.
+    You are correct!
   </div>
 
   <script src="script.js" defer></script>
