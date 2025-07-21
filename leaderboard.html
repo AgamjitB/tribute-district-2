@@ -1,14 +1,63 @@
-<!-- leaderboard.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>District 2 Leaderboard</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0b2910;
+      color: #d5f5e3;
+      text-align: center;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      color: #1fff6c;
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .leaderboard-card {
+      background-color: #103c1b;
+      border: 2px solid #1fff6c;
+      border-radius: 12px;
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      box-shadow: 0 0 20px #1fff6c55;
+    }
+
+    ol.leaderboard {
+      list-style-position: inside;
+      text-align: left;
+      padding-left: 0;
+      font-size: 1.2em;
+      line-height: 1.8em;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      background-color: #145a32;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #1e8449;
+    }
+  </style>
 </head>
 <body>
   <h1>🏆 District 2 Leaderboard</h1>
-  <div class="leaderboard-container">
+  <div class="leaderboard-card">
     <ol class="leaderboard">
       <li>Advika</li>
       <li>Agamjsb</li>
@@ -27,5 +76,7 @@
       <li>Cynara Naik</li>
     </ol>
   </div>
+
+  <button class="back-btn" onclick="window.location.href='index.html'">← Back to Home</button>
 </body>
 </html>
