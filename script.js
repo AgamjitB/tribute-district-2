@@ -139,3 +139,34 @@ function startDinoShake() {
     }, 500);
   }, 4000);
 }
+function roamDinoOnceEvery20Seconds() {
+  const dinoContainer = document.getElementById('dino-container');
+  const dino = document.getElementById('dino');
+
+  if (!dinoContainer || !dino) return;
+
+  function startRoam() {
+    dinoContainer.style.display = 'block';
+    dino.classList.add('walking');
+
+    // Stop walking and hide after 8s
+    setTimeout(() => {
+      dino.classList.remove('walking');
+      dinoContainer.style.display = 'none';
+    }, 8000);
+  }
+
+  // Start first walk
+  startRoam();
+
+  // Repeat every 20s
+  setInterval(() => {
+    startRoam();
+  }, 20000);
+}
+
+// Call this in window.onload
+window.onload = function () {
+  // your other onload code...
+  roamDinoOnceEvery20Seconds();
+};
