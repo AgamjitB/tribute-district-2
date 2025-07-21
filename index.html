@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>District 2 Access</title>
   <style>
     body {
@@ -92,27 +92,22 @@
   </div>
 
   <script>
-    // Auto redirect if already unlocked
-    if (localStorage.getItem("unlocked") === "true") {
-      window.location.href = "home.html";
-    }
-
     function checkPassword() {
       const password = document.getElementById("password").value;
       if (password === "district2") {
-        localStorage.setItem("unlocked", "true");
+        // No localStorage set, so no skip next time
         window.location.href = "home.html";
       } else {
         document.getElementById("error-message").textContent = "Incorrect password. Try again.";
       }
     }
 
-    // Allow Enter key to work
+    // Allow Enter key to submit
     document.addEventListener("keydown", function (e) {
       if (e.key === "Enter") checkPassword();
     });
 
-    // Clear error message when typing
+    // Clear error on input
     document.getElementById("password").addEventListener("input", () => {
       document.getElementById("error-message").textContent = "";
     });
