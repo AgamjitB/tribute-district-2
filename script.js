@@ -1,3 +1,32 @@
+// Puzzle and hint logic (runs when DOM is ready)
+document.addEventListener("DOMContentLoaded", function () {
+  const puzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
+  currentAnswer = puzzle.password;
+  currentHint = puzzle.hint;
+
+  const hintEl = document.getElementById("puzzle-hint");
+  if (hintEl) {
+    hintEl.textContent = "Hint: " + currentHint;
+  }
+
+  const glitchText = document.getElementById("glitch-trigger");
+  if (glitchText) {
+    glitchText.addEventListener("mouseenter", () => {
+      hoverTimer = setTimeout(() => {
+        document.getElementById("egg3-input").classList.add("show");
+      }, 3000);
+    });
+
+    glitchText.addEventListener("mouseleave", () => {
+      clearTimeout(hoverTimer);
+    });
+  }
+});
+
+// -----------------------------
+// GLOBAL VARIABLES & ARRAYS
+// -----------------------------
+
 const puzzles = [
   { password: "chlorophyll", hint: "It's the green engine behind photosynthesis." },
   { password: "gravity", hint: "What keeps your feet on the ground?" },
@@ -18,34 +47,11 @@ const facts = [
 
 let currentAnswer = "";
 let currentHint = "";
+let hoverTimer;
 
-document.addEventListener("DOMContentLoaded", function () {
-  const puzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
-  currentAnswer = puzzle.password;
-  currentHint = puzzle.hint;
-
-  const hintEl = document.getElementById("puzzle-hint");
-  if (hintEl) {
-    hintEl.textContent = "Hint: " + currentHint;
-  }
-});
-
-  const glitchText = document.getElementById("glitch-trigger");
-  if (glitchText) {
-    glitchText.addEventListener("mouseenter", () => {
-      hoverTimer = setTimeout(() => {
-        document.getElementById("egg3-input").classList.add("show");
-      }, 3000);
-    });
-
-    glitchText.addEventListener("mouseleave", () => {
-      clearTimeout(hoverTimer);
-    });
-  }
-
-  // Start the dinosaur screen shake effect when page loads
-  startDinoShake();
-};
+// -----------------------------
+// FUNCTION DEFINITIONS
+// -----------------------------
 
 function checkAnswer() {
   const input = document.getElementById("answer").value.toLowerCase();
@@ -124,88 +130,3 @@ function checkEgg3(event) {
 function showEgg3Input() {
   document.getElementById("egg3-input").classList.add("show");
 }
-
-/* ==== Dinosaur Walking & Screen Shake Logic ==== */
-
-function startDinoShake() {
-  const body = document.body;
-  const dino = document.getElementById('dino');
-
-  if (!dino) return;
-
-  // Start shaking immediately
-  body.classList.add('shake');
-
-  // Every 4 seconds, pause shaking for 0.5s to simulate dino flipping
-  setInterval(() => {
-    body.classList.remove('shake');
-    setTimeout(() => {
-      body.classList.add('shake');
-    }, 500);
-  }, 4000);
-}
-function roamDinoOnceEvery20Seconds() {
-  const dinoContainer = document.getElementById('dino-container');
-  const dino = document.getElementById('dino');
-
-  if (!dinoContainer || !dino) return;
-
-  function startRoam() {
-    dinoContainer.style.display = 'block';
-    dino.classList.add('walking');
-
-    // Stop walking and hide after 8s
-    setTimeout(() => {
-      dino.classList.remove('walking');
-      dinoContainer.style.display = 'none';
-    }, 8000);
-  }
-
-  // Start first walk
-  startRoam();
-
-  // Repeat every 20s
-  setInterval(() => {
-    startRoam();
-  }, 20000);
-}
-
-// Call this in window.onload
-window.onload = function () {
-  // your other onload code...
-  roamDinoOnceEvery20Seconds();
-};
-function roamDinoOnceEvery20Seconds() {
-  const dinoContainer = document.getElementById('dino-container');
-  const dino = document.getElementById('dino');
-  const body = document.body;
-
-  if (!dinoContainer || !dino) return;
-
-  function startRoam() {
-    dinoContainer.style.display = 'block';
-    dino.classList.add('walking');
-    body.classList.add('shake');
-
-    // Stop after 8s
-    setTimeout(() => {
-      dino.classList.remove('walking');
-      dinoContainer.style.display = 'none';
-      body.classList.remove('shake');
-    }, 8000);
-  }
-
-  // First walk immediately
-  startRoam();
-
-  // Then every 20 seconds
-  setInterval(() => {
-    startRoam();
-  }, 20000);
-}
-
-// Call it on load
-window.onload = function () {
-  // your existing onload code...
-  roamDinoOnceEvery20Seconds();
-};
