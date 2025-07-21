@@ -46,7 +46,7 @@ function checkAnswer() {
   const result = document.getElementById("result");
 
   if (input === currentAnswer) {
-    result.textContent = "You are correct!";
+    result.textContent = "You found easter egg number 2!";
     result.style.color = "#00aa00";
     showSuccessToast();
   } else {
