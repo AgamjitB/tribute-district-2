@@ -1,5 +1,3 @@
-// script.js
-
 const puzzles = [
   { password: "chlorophyll", hint: "It's the green engine behind photosynthesis." },
   { password: "gravity", hint: "What keeps your feet on the ground?" },
@@ -39,6 +37,9 @@ window.onload = function () {
       clearTimeout(hoverTimer);
     });
   }
+
+  // Start the dinosaur screen shake effect when page loads
+  startDinoShake();
 };
 
 function checkAnswer() {
@@ -114,6 +115,27 @@ function checkEgg3(event) {
     }
   }
 }
+
 function showEgg3Input() {
   document.getElementById("egg3-input").classList.add("show");
+}
+
+/* ==== Dinosaur Walking & Screen Shake Logic ==== */
+
+function startDinoShake() {
+  const body = document.body;
+  const dino = document.getElementById('dino');
+
+  if (!dino) return;
+
+  // Start shaking immediately
+  body.classList.add('shake');
+
+  // Every 4 seconds, pause shaking for 0.5s to simulate dino flipping
+  setInterval(() => {
+    body.classList.remove('shake');
+    setTimeout(() => {
+      body.classList.add('shake');
+    }, 500);
+  }, 4000);
 }
