@@ -172,3 +172,45 @@ h1 {
 body.shake {
   animation: screen-shake 0.3s infinite;
 }
+/* === Roaming Dino === */
+
+#dino-container {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1000;
+  display: none; /* hidden by default */
+}
+
+#dino {
+  font-size: 4rem; /* big dino */
+  position: absolute;
+  bottom: 0;
+  left: -10%; /* start offscreen */
+  user-select: none;
+  cursor: default;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+/* Dino bouncy leg motion */
+@keyframes dino-walk-legs {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(5deg); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-3px) rotate(-5deg); }
+}
+
+/* Dino walking across screen left → right */
+@keyframes dino-roam-left-to-right {
+  0% { left: -10%; }
+  100% { left: 110%; }
+}
+
+/* Combo animation */
+.walking {
+  animation: dino-roam-left-to-right 8s linear forwards, dino-walk-legs 0.8s ease-in-out infinite;
+}
