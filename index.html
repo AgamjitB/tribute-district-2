@@ -92,22 +92,25 @@
   </div>
 
   <script>
+    // Only ask once per session
+    if (sessionStorage.getItem("unlocked") === "true") {
+      window.location.href = "home.html";
+    }
+
     function checkPassword() {
       const password = document.getElementById("password").value;
       if (password === "district2") {
-        // No localStorage set, so no skip next time
+        sessionStorage.setItem("unlocked", "true");
         window.location.href = "home.html";
       } else {
         document.getElementById("error-message").textContent = "Incorrect password. Try again.";
       }
     }
 
-    // Allow Enter key to submit
     document.addEventListener("keydown", function (e) {
       if (e.key === "Enter") checkPassword();
     });
 
-    // Clear error on input
     document.getElementById("password").addEventListener("input", () => {
       document.getElementById("error-message").textContent = "";
     });
