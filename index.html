@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>District 2 Login</title>
+  <style>
+    body {
+      background-color: #0b2910;
+      font-family: 'Segoe UI', sans-serif;
+      color: #d5f5e3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .login-box {
+      background-color: #103c1b;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px #1fff6c;
+      text-align: center;
+    }
+
+    input {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      width: 200px;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      margin-top: 15px;
+      background-color: #1fff6c;
+      color: #0b2910;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-box">
+    <h2>🔒 Enter Password to Access District 2</h2>
+    <input type="password" id="password" placeholder="Enter password">
+    <button onclick="checkPassword()">Enter</button>
+    <p class="error" id="error-message"></p>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+      if (password === "district2") {
+        window.location.href = "home.html";
+      } else {
+        document.getElementById("error-message").textContent = "Wrong password. Try again.";
+      }
+    }
+  </script>
+</body>
+</html>
