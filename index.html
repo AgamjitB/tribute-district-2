@@ -1,18 +1,13 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>District 2</title>
+  <title>District 2 - Tribute HQ</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    body {
-      text-align: center;
-    }
-  </style>
 </head>
 <body>
-  <h1>District 2</h1>
+  <h1>Welcome to District 2: The Powerhouse</h1>
+  <p>A strategic command center for our tributes. Choose your next move.</p>
 
   <div class="button-container">
     <button onclick="goToTeam()">Meet the Team</button>
@@ -20,13 +15,12 @@
   </div>
 
   <!-- Easter Egg Popup -->
-  <div id="egg-popup" class="hidden popup">
+  <div id="egg-popup" class="hidden popup" onclick="goToEaster1()">
     <p id="egg-text">Click this popup to claim your surprise.</p>
   </div>
 
-  <!-- Easter Egg 2 Hidden Dot Trigger Area -->
-  <div id="egg2-zone" onmouseenter="revealDot()"></div>
-  <div id="egg2" onclick="promptRiddle()" class="hidden-dot"></div>
+  <!-- Hidden clickable dot -->
+  <div id="egg2" onclick="goToEgg2()" title="..." style="position: absolute; bottom: 5px; left: 5px; width: 10px; height: 10px; background-color: transparent; cursor: pointer;"></div>
 
   <!-- Puzzle Section -->
   <div id="puzzle-room">
@@ -37,12 +31,9 @@
     <p id="result"></p>
   </div>
 
-  <!-- Easter Egg 3 Input (appears after hover) -->
-  <input type="text" id="egg3-input" class="hidden" placeholder="Type something..." onkeydown="checkEgg3(event)">
-
   <!-- Success Toast -->
   <div id="success-toast" class="toast">
-    You are correct!
+    You unlocked the greenhouse.
   </div>
 
   <script src="script.js" defer></script>
