@@ -1,139 +1,127 @@
-// script.js (FINAL HARDER VERSION)
+/* style.css */
 
-const puzzles = [
-  { password: "chlorophyll", hint: "It's the green engine behind photosynthesis." },
-  { password: "gravity", hint: "What keeps your feet on the ground?" },
-  { password: "neuron", hint: "This fires signals inside your brain." },
-  { password: "fusion", hint: "How stars generate their energy." },
-  { password: "refraction", hint: "Why a straw looks bent in water." }
-];
-
-const facts = [
-  "Your brain uses 20% of your body's energy — even at rest.",
-  "There are more stars in the universe than grains of sand on Earth.",
-  "You are made of stardust — literally.",
-  "Lightning is hotter than the surface of the sun.",
-  "Octopuses have 3 hearts and blue blood.",
-  "In space, there’s no sound — no air means no noise.",
-  "DNA in your body could stretch from Earth to Pluto and back… 17 times."
-];
-
-let currentAnswer = "";
-let currentHint = "";
-let egg1Complete = false;
-let egg2Complete = false;
-
-window.onload = function () {
-  const puzzle = puzzles[Math.floor(Math.random() * puzzles.length)];
-  currentAnswer = puzzle.password;
-  currentHint = puzzle.hint;
-  document.getElementById("puzzle-hint").textContent = "Hint: " + currentHint;
-
-  const glitchText = document.getElementById("glitch-trigger");
-  if (glitchText) {
-    glitchText.style.color = egg2Complete ? "#55ff55" : "#777";
-    if (egg2Complete) {
-      glitchText.addEventListener("mouseenter", () => {
-        hoverTimer = setTimeout(() => {
-          document.getElementById("egg3-input").classList.add("show");
-        }, 3000);
-      });
-      glitchText.addEventListener("mouseleave", () => clearTimeout(hoverTimer));
-    }
-  }
-};
-
-function showEggPopup() {
-  const fact = facts[Math.floor(Math.random() * facts.length)];
-  const popup = document.getElementById("egg-popup");
-  document.getElementById("egg-text").innerHTML = fact + " (Hint: double click!)";
-  popup.classList.remove("hidden");
-  popup.onclick = () => {};
-  popup.ondblclick = () => {
-    const code = prompt("Type the code to continue:");
-    if (code && code.toLowerCase() === "science123") {
-      egg1Complete = true;
-      alert("Easter Egg 1 unlocked!");
-      window.location.href = "easter1.html";
-    } else {
-      alert("Wrong code. Try again.");
-    }
-  };
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding: 20px;
+  background-color: #0f1626;
+  color: #f0f0f0;
+  text-align: center;
 }
 
-function checkAnswer() {
-  if (!egg1Complete) {
-    alert("You must unlock Science Surprise first.");
-    return;
-  }
-
-  const input = document.getElementById("answer").value.toLowerCase();
-  const result = document.getElementById("result");
-
-  if (input === currentAnswer) {
-    const riddle = prompt("Correct! Now answer: What’s between protons in an atom?");
-    if (riddle && riddle.toLowerCase().includes("empty")) {
-      egg2Complete = true;
-      result.textContent = "You are correct!";
-      result.style.color = "#00aa00";
-      showSuccessToast();
-      setTimeout(() => {
-        window.location.href = "easter2.html";
-      }, 2000);
-    } else {
-      result.textContent = "Close, but not quite. Think 'emptiness'.";
-      result.style.color = "#cc0000";
-    }
-  } else {
-    result.textContent = "Incorrect password. Try again.";
-    result.style.color = "#cc0000";
-  }
+h1 {
+  color: #ff2e2e;
 }
 
-function revealDot() {
-  document.getElementById("egg2").classList.add("visible");
+.button-container button {
+  background-color: #002244;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
 }
 
-function promptRiddle() {
-  if (!egg1Complete) {
-    alert("Unlock Science Surprise first.");
-    return;
-  }
-  const answer = prompt("What has no mass, but occupies space?");
-  if (answer && answer.toLowerCase().includes("vacuum")) {
-    const second = prompt("What fills the space between protons?");
-    if (second && second.toLowerCase().includes("nothing")) {
-      egg2Complete = true;
-      window.location.href = "easter2.html";
-    } else {
-      alert("Close. Try thinking of 'absence'.");
-    }
-  } else {
-    alert("Incorrect. Hint: It's not air.");
-  }
+.button-container button:hover {
+  background-color: #003366;
 }
 
-function showSuccessToast() {
-  const toast = document.getElementById("success-toast");
-  toast.classList.add("show");
-  setTimeout(() => toast.classList.remove("show"), 4000);
+.popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #222;
+  padding: 15px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 1000;
 }
 
-function goToTeam() {
-  window.location.href = "team.html";
+.hidden {
+  display: none;
 }
 
-function checkEgg3(event) {
-  if (!egg2Complete) {
-    alert("You need to complete the previous Easter Eggs first.");
-    return;
-  }
-  if (event.key === "Enter") {
-    const val = event.target.value.toLowerCase();
-    if (val.includes("easter egg 3")) {
-      window.location.href = "easter3.html";
-    } else {
-      alert("Try again. Hint: It's an Easter egg.");
-    }
-  }
+.toast {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #4CAF50;
+  padding: 10px 20px;
+  color: white;
+  border-radius: 4px;
+  display: none;
+}
+
+.toast.show {
+  display: block;
+}
+
+#egg2-zone {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+}
+
+#egg2 {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  width: 10px;
+  height: 10px;
+  background-color: #333;
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+#egg2.visible {
+  opacity: 1;
+}
+
+.glitch-text {
+  color: #ff4040;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.glitch-text:hover {
+  color: #ff8888;
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+  20% { text-shadow: -2px 0 red, 2px 0 cyan; }
+  40% { text-shadow: 2px 2px red, -2px -2px cyan; }
+  60% { text-shadow: -2px 2px red, 2px -2px cyan; }
+  80% { text-shadow: 2px -2px red, -2px 2px cyan; }
+  100% { text-shadow: 2px 0 red, -2px 0 cyan; }
+}
+
+.glitch-active {
+  animation: glitch 0.5s linear 5;
+}
+
+#egg3-input {
+  margin-top: 10px;
+  padding: 5px;
+  font-size: 0.9em;
+  display: none;
+  background: #222;
+  color: white;
+  border: 1px solid #555;
+  border-radius: 3px;
+}
+
+#egg3-input.show {
+  display: inline-block;
 }
