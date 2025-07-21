@@ -1,15 +1,11 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>District 2: Tribute HQ</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
-  <!-- Roaming Dinosaur -->
-<div id="dino-container">
-  <div id="dino">🦖</div>
-</div>
 <body>
   <h1>District 2: Tribute HQ</h1>
   <p>Welcome to your command center.</p>
@@ -17,6 +13,7 @@
   <div class="button-container">
     <button onclick="goToTeam()">Meet the Team</button>
     <button onclick="showEggPopup()">Science Surprise</button>
+    <button onclick="window.location.href='leaderboard.html'">View District 2 Leaderboard</button>
   </div>
 
   <!-- Easter Egg Popup -->
@@ -45,10 +42,9 @@
     You are correct!
   </div>
 
-  <script src="script.js" defer></script>
-  <div class="button-container">
-  <button onclick="window.location.href='leaderboard.html'">View District 2 Leaderboard</button>
-</div>
+  <!-- Roaming Dinosaur -->
+  <div id="dino-container">
+    <div id="dino">🦖</div>
+  </div>
 </body>
 </html>
-
