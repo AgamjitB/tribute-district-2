@@ -1,4 +1,5 @@
-// Puzzle options
+// script.js
+
 const puzzles = [
   { password: "chlorophyll", hint: "It's the green engine behind photosynthesis." },
   { password: "gravity", hint: "What keeps your feet on the ground?" },
@@ -7,7 +8,6 @@ const puzzles = [
   { password: "refraction", hint: "Why a straw looks bent in water." }
 ];
 
-// Science facts for popup
 const facts = [
   "Your brain uses 20% of your body's energy — even at rest.",
   "There are more stars in the universe than grains of sand on Earth.",
@@ -26,6 +26,19 @@ window.onload = function () {
   currentAnswer = puzzle.password;
   currentHint = puzzle.hint;
   document.getElementById("puzzle-hint").textContent = "Hint: " + currentHint;
+
+  const glitchText = document.getElementById("glitch-trigger");
+  if (glitchText) {
+    glitchText.addEventListener("mouseenter", () => {
+      hoverTimer = setTimeout(() => {
+        document.getElementById("egg3-input").classList.add("show");
+      }, 3000);
+    });
+
+    glitchText.addEventListener("mouseleave", () => {
+      clearTimeout(hoverTimer);
+    });
+  }
 };
 
 function checkAnswer() {
@@ -33,11 +46,9 @@ function checkAnswer() {
   const result = document.getElementById("result");
 
   if (input === currentAnswer) {
-    result.textContent = "Correct! You unlocked the greenhouse.";
+    result.textContent = "You are correct!";
     result.style.color = "#00aa00";
     showSuccessToast();
-  } else if (input === "easter egg 3") {
-    window.location.href = "easter3.html";
   } else {
     result.textContent = "Incorrect password. Try again.";
     result.style.color = "#cc0000";
@@ -55,12 +66,30 @@ function showSuccessToast() {
 function showEggPopup() {
   const fact = facts[Math.floor(Math.random() * facts.length)];
   const popup = document.getElementById("egg-popup");
-  document.getElementById("egg-text").innerHTML = `${fact} <br><em>(Click to explore further)</em>`;
+  document.getElementById("egg-text").innerHTML = fact + " (Hint: Try clicking again...)";
   popup.classList.remove("hidden");
+
+  popup.onclick = () => {
+    window.location.href = "easter1.html";
+  };
 }
 
-function hideEggPopup() {
-  document.getElementById("egg-popup").classList.add("hidden");
+function revealDot() {
+  document.getElementById("egg2").classList.add("visible");
+}
+
+function promptRiddle() {
+  const answer = prompt("What has no mass, but occupies space?");
+  if (answer && answer.toLowerCase().includes("vacuum")) {
+    const second = prompt("Now, what's between protons in an atom?");
+    if (second && second.toLowerCase().includes("empty")) {
+      window.location.href = "easter2.html";
+    } else {
+      alert("Close, but not quite. Think emptiness.");
+    }
+  } else {
+    alert("Incorrect. Hint: It's not air.");
+  }
 }
 
 function goToTeam() {
@@ -75,11 +104,13 @@ function goToEgg2() {
   window.location.href = "easter2.html";
 }
 
-function triggerGlitch() {
-  const glitchText = document.getElementById("glitch-trigger");
-  glitchText.classList.add("glitch-active");
-
-  setTimeout(() => {
-    window.location.href = "easter3.html";
-  }, 2500);
+function checkEgg3(event) {
+  if (event.key === "Enter") {
+    const val = event.target.value.toLowerCase();
+    if (val.includes("easter egg 3")) {
+      window.location.href = "easter3.html";
+    } else {
+      alert("Try again. Hint: It's an Easter egg.");
+    }
+  }
 }
