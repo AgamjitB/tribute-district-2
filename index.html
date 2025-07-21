@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
   <title>District 2 Access</title>
   <style>
     body {
@@ -92,7 +92,7 @@
   </div>
 
   <script>
-    // Skip password if already entered
+    // Auto redirect if already unlocked
     if (localStorage.getItem("unlocked") === "true") {
       window.location.href = "home.html";
     }
@@ -106,6 +106,16 @@
         document.getElementById("error-message").textContent = "Incorrect password. Try again.";
       }
     }
+
+    // Allow Enter key to work
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") checkPassword();
+    });
+
+    // Clear error message when typing
+    document.getElementById("password").addEventListener("input", () => {
+      document.getElementById("error-message").textContent = "";
+    });
   </script>
 </body>
 </html>
