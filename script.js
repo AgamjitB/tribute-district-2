@@ -114,3 +114,6 @@ function checkEgg3(event) {
     }
   }
 }
+function showEgg3Input() {
+  document.getElementById("egg3-input").classList.add("show");
+}
