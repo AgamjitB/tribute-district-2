@@ -3,17 +3,17 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   padding: 20px;
-  background-color: #0f1626;
-  color: #f0f0f0;
+  background-color: #0b2910; /* darker green */
+  color: #d5f5e3; /* light minty green text */
   text-align: center;
 }
 
 h1 {
-  color: #ff2e2e;
+  color: #1fff6c; /* bright green for headers */
 }
 
 .button-container button {
-  background-color: #002244;
+  background-color: #145a32; /* dark green */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -24,16 +24,16 @@ h1 {
 }
 
 .button-container button:hover {
-  background-color: #003366;
+  background-color: #1e8449;
 }
 
 .popup {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background: #222;
+  background: #145a32;
   padding: 15px;
-  border: 1px solid #444;
+  border: 1px solid #1e8449;
   border-radius: 5px;
   cursor: pointer;
   z-index: 1000;
@@ -48,7 +48,7 @@ h1 {
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background: #4CAF50;
+  background: #2ecc71;
   padding: 10px 20px;
   color: white;
   border-radius: 4px;
@@ -73,7 +73,7 @@ h1 {
   left: 8px;
   width: 10px;
   height: 10px;
-  background-color: #333;
+  background-color: #1e8449;
   opacity: 0;
   cursor: pointer;
   transition: opacity 0.3s;
@@ -84,7 +84,7 @@ h1 {
 }
 
 .glitch-text {
-  color: #ff4040;
+  color: #00ff99;
   font-weight: bold;
   cursor: pointer;
   user-select: none;
@@ -93,22 +93,9 @@ h1 {
 }
 
 .glitch-text:hover {
-  color: #ff8888;
+  color: #66ffcc;
   text-decoration: underline;
   transform: scale(1.05);
-}
-
-@keyframes glitch {
-  0% { text-shadow: 2px 0 red, -2px 0 cyan; }
-  20% { text-shadow: -2px 0 red, 2px 0 cyan; }
-  40% { text-shadow: 2px 2px red, -2px -2px cyan; }
-  60% { text-shadow: -2px 2px red, 2px -2px cyan; }
-  80% { text-shadow: 2px -2px red, -2px 2px cyan; }
-  100% { text-shadow: 2px 0 red, -2px 0 cyan; }
-}
-
-.glitch-active {
-  animation: glitch 0.5s linear 5;
 }
 
 #egg3-input {
@@ -116,9 +103,9 @@ h1 {
   padding: 5px;
   font-size: 0.9em;
   display: none;
-  background: #222;
+  background: #1a3c24;
   color: white;
-  border: 1px solid #555;
+  border: 1px solid #298f4e;
   border-radius: 3px;
 }
 
