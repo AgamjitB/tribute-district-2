@@ -31,7 +31,10 @@
 
   <div class="team-member">
     <h2>Agamjit Bal</h2>
-    <p>Loves to experiment and explore new tech — especially the <span class="glitch-text" id="glitch-trigger">innovative</span> kind.</p>
+    <p>
+      Loves to experiment and explore new tech — especially the 
+      <span class="glitch-text" id="glitch-trigger" onclick="showEgg3Input()">innovative</span> kind.
+    </p>
   </div>
 
   <div class="team-member">
@@ -49,8 +52,19 @@
     <p>Organized, driven, and never afraid to dive deep into the science.</p>
   </div>
 
-  <input type="text" id="egg3-input" class="hidden" placeholder="Type something..." onkeydown="checkEgg3(event)">
+  <input
+    type="text"
+    id="egg3-input"
+    class="hidden"
+    placeholder="Type something..."
+    onkeydown="checkEgg3(event)"
+  >
 
   <script src="script.js" defer></script>
+  <script>
+    function showEgg3Input() {
+      document.getElementById("egg3-input").classList.add("show");
+    }
+  </script>
 </body>
 </html>
