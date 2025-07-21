@@ -14,12 +14,21 @@ body {
 .login-box,
 .popup,
 .button-container,
-#puzzle-room,
 .toast,
 #egg3-input {
   background-image: none;
   background-color: rgba(16, 60, 27, 0.95);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Remove box & shadow from puzzle-room */
+#puzzle-room {
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  color: #d5f5e3; /* keep text visible */
+  text-align: center;
 }
 
 /* Login page styling (for index.html) */
@@ -62,8 +71,15 @@ input {
   width: 100%;
 }
 
-/* Puzzle input narrower */
+/* Puzzle input styled with subtle underline */
 #puzzle-room input[type="text"] {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #1fff6c;
+  color: #d5f5e3;
+  font-size: 1em;
+  padding-left: 5px;
+  margin-top: 10px;
   width: 250px;
   max-width: 90%;
 }
@@ -138,7 +154,6 @@ button:hover {
 
 button:active {
   animation: button-press 0.2s ease, button-click-color 0.3s ease;
-  /* Make sure scale from animation is kept */
   transform-origin: center;
 }
 
