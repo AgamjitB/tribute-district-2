@@ -170,3 +170,37 @@ window.onload = function () {
   // your other onload code...
   roamDinoOnceEvery20Seconds();
 };
+function roamDinoOnceEvery20Seconds() {
+  const dinoContainer = document.getElementById('dino-container');
+  const dino = document.getElementById('dino');
+  const body = document.body;
+
+  if (!dinoContainer || !dino) return;
+
+  function startRoam() {
+    dinoContainer.style.display = 'block';
+    dino.classList.add('walking');
+    body.classList.add('shake');
+
+    // Stop after 8s
+    setTimeout(() => {
+      dino.classList.remove('walking');
+      dinoContainer.style.display = 'none';
+      body.classList.remove('shake');
+    }, 8000);
+  }
+
+  // First walk immediately
+  startRoam();
+
+  // Then every 20 seconds
+  setInterval(() => {
+    startRoam();
+  }, 20000);
+}
+
+// Call it on load
+window.onload = function () {
+  // your existing onload code...
+  roamDinoOnceEvery20Seconds();
+};
