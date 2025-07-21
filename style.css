@@ -214,3 +214,58 @@ body.shake {
 .walking {
   animation: dino-roam-left-to-right 8s linear forwards, dino-walk-legs 0.8s ease-in-out infinite;
 }
+/* === Roaming Dino & Screen Shake === */
+
+#dino-container {
+  position: fixed;
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 1000;
+  display: none; /* hidden until walk */
+}
+
+#dino {
+  font-size: 4rem;
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  user-select: none;
+  cursor: default;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+/* Dino moves across screen */
+@keyframes dino-roam-left-to-right {
+  0% { left: -10%; }
+  100% { left: 110%; }
+}
+
+/* Dino legs bounce + rotate */
+@keyframes dino-walk-legs {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(4deg); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-3px) rotate(-4deg); }
+}
+
+/* Combo animation */
+.walking {
+  animation: 
+    dino-roam-left-to-right 8s linear forwards, 
+    dino-walk-legs 0.5s ease-in-out infinite;
+}
+
+/* Screen shake */
+@keyframes screen-shake {
+  0%, 100% { transform: translate(0, 0); }
+  20%, 60% { transform: translate(-2px, 2px); }
+  40%, 80% { transform: translate(2px, -2px); }
+}
+
+body.shake {
+  animation: screen-shake 0.3s infinite;
+}
