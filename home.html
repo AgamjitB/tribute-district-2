@@ -5,16 +5,6 @@
   <title>District 2: The dill pickles</title>
   <link rel="stylesheet" href="style.css" />
   <script src="script.js" defer></script>
-  <style>
-    /* Add this CSS here or in your style.css */
-
-    .pickle-image {
-      display: block;
-      max-width: 200px;   /* controls size */
-      height: auto;       /* keeps aspect ratio */
-      margin: 20px auto;  /* center horizontally with margin */
-    }
-  </style>
 </head>
 <body>
   <h1>District 2: The dill pickles</h1>
@@ -22,10 +12,11 @@
   <p>Welcome to your command center.</p>
 
   <div class="button-container">
-    <button onclick="window.location.href='lore.html'">Sehej's Basement</button>
     <button onclick="goToTeam()">Meet the Team</button>
     <button onclick="showEggPopup()">Science Surprise</button>
     <button onclick="window.location.href='leaderboard.html'">View District 2 Leaderboard</button>
+    <button onclick="window.location.href='lore.html'">Sciocamp Lore</button>
+    <button onclick="window.open('secret.html', '_blank')">Unlock the Secret</button>
   </div>
 
   <!-- Easter Egg Popup -->
@@ -51,7 +42,7 @@
 
   <!-- Success Toast -->
   <div id="success-toast" class="toast">
-    Your hint is ALL CAPS no spaces!
+    You found easter egg number 2!
   </div>
 </body>
 </html>
